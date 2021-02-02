@@ -1,0 +1,123 @@
+@keyframes collapse {
+  0% {
+    grid-template-columns: 4fr 6fr;
+  }
+  50% {
+    grid-template-columns: 4fr 6fr;
+  }
+  100% {
+    grid-template-columns: 4fr 6fr;
+  }
+}
+
+@keyframes collapsediv {
+  0% {
+    width: 10vw;
+  }
+  100% {
+    width: 100vw;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    transform: translate3d(0, 40px, 0);
+    opacity: 0;
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+}
+
+.titleDetails {
+  margin-top: 20px;
+  font-weight: 500;
+  font-size: 36px;
+  line-height: 48px;
+  text-align: center;
+  letter-spacing: 0.1px;
+  color: var(--text);
+}
+
+.fadeInUpDetailsDelay {
+  opacity: 0;
+  animation: 1.2s ease fadeInUp;
+  animation-fill-mode: forwards;
+
+  animation-delay: 2.5s;
+}
+
+.fadeInUpDetails{
+  animation: 1.2s ease fadeInUp;
+  animation-fill-mode: forwards;
+
+}
+.gridDetails {
+  width: 100vw;
+  min-height:100vh;
+  display: grid;
+  grid-template-columns: 2fr 8fr;
+}
+
+.leftCointainerDetails {
+  width: calc(100vw-80px);
+  margin: 0 40px 0 40px;
+  display: grid;
+  justify-items: center;
+  animation: 2.4s ease collapsediv;
+}
+
+.imgBackgroundDetails {
+  background-size: cover;
+  background-image: url("./Images/bannerPattern.svg");
+  background-position: center center;
+}
+.cointainerDetails {
+  display: grid;
+  overflow-x: hidden;
+  width: 100vw;
+  height: 100vh;
+  grid-template-columns: auto 0fr;
+  animation: 2.4s ease collapse;
+}
+
+.fieldsDetails {
+  margin: 80px 0 80px 0;
+  display: grid;
+  row-gap: 40px;
+  width: 400px;
+}
+.centerButton {
+  display: grid;
+  justify-content: center;
+  align-content: center;
+}
+
+.menuWrapperDetails {
+  padding: 10px 0 10px 0;
+  height: fit-content;
+  align-self: center;
+}
+
+.menuItemDetails {
+  padding: 18px 16px;
+  justify-content: space-between;
+  color: var(--text);
+
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+}
+
+.menuItemDetails:hover {
+  color: var(--primaryClr);
+  background: var(--primaryClr05);
+}
+
+.menuItemSelectedDetails {
+  color: var(--primaryClr);
+  background: var(--primaryClr05);
+}
