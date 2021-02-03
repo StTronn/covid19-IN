@@ -23,7 +23,7 @@ const Count = ({end}) => {
       setCount(start);
       if ((positive && start >= end)|| (!positive && start<=end)) {setCount(end);clearInterval(timer);}
     }, refreshRate);
-    
+//eslint-disable-next-line    
 }, [end]);
 
   return (

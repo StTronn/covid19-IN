@@ -25,7 +25,7 @@
 }
 
 .highlightCard{
-    transition: all 2.3s ease;
+    transition: all 0.3s ease;
     cursor: pointer;
     -webkit-font-smoothing: subpixel-antialiased;
     box-sizing: border-box;
