@@ -13,10 +13,9 @@ const Count = ({end}) => {
   useEffect(() => {
     let start = count;
     // if zero, return
-    console.log(start,end)
     let positive=true;
     if (start>end) positive=false;
-    const step =(end-start)/(totalAnimationTime/refreshRate);
+    const step =Math.round((end-start)/(totalAnimationTime/refreshRate));
     
 
     let timer = setInterval(() => {

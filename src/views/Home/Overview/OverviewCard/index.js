@@ -1,6 +1,8 @@
 import React from "react";
 import Counter from "../../../../common/Counter"
 
+import  {format,percent} from "../../../../utils"
+
 export default function index({ type, delta, today }) {
   if (!delta) delta=0;
   return (
@@ -12,7 +14,7 @@ export default function index({ type, delta, today }) {
           <div className="overviewCardDayChange growwPrim">
             {format(delta)}
             {" "}
-            ({format(percent(today, delta))}%)
+            ({percent(today, delta)}%)
           </div>
         </div>
       </div>
@@ -20,10 +22,3 @@ export default function index({ type, delta, today }) {
   );
 }
 
-const format = (number) => {
-  return Intl.NumberFormat("en-IN", { maximumSignificantDigits: 3 }).format(
-    number
-  );
-};
-
-const percent = (total, delta) => (delta / total) * 100;

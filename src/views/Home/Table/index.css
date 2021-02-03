@@ -29,7 +29,9 @@
 .row .cell {
   display: grid;
   align-items: center;
+  padding:0 4px;
   min-height: 55px;
+  text-align: center;
   justify-items: center;
   border-bottom: 1px solid var(--border);
 }

@@ -2,12 +2,10 @@ import React, { useState } from "react";
 
 import Arrowdown from "../../../../assets/icons/Arrowdown";
 
-import { STATE_CODES } from "../../../../utils/constants";
 
-import './index.css'
+const params=['confirmed','tested','recovered','vaccinated']
 
-
-const DropDown = ({ selectedState, setSelectedState }) => {
+const DropDown = ({  selectedParam, setSelectedParam }) => {
   const [dropwDownVisible, setDropDownVisible] = useState(false);
   return (
     <div className="overViewDropCointainer">
@@ -15,17 +13,17 @@ const DropDown = ({ selectedState, setSelectedState }) => {
         className="overViewDrop"
         onClick={() => setDropDownVisible(!dropwDownVisible)}
       >
-        {STATE_CODES[selectedState] || "NA"}
+        {selectedParam.charAt(0).toUpperCase() + selectedParam.slice(1)} 
         <Arrowdown />
       </div>
       {dropwDownVisible && (
         <div className="dropDown ">
-          {Object.keys(STATE_CODES).map((code) => (
+          {params.map((param) => (
             <Suggestion
-              key={code}
-              display={STATE_CODES[code]}
+              key={param}
+              display={param}
               onClick={() => {
-                setSelectedState(code);
+                setSelectedParam(param);
                 setDropDownVisible(false);
               }}
             />
@@ -36,10 +34,11 @@ const DropDown = ({ selectedState, setSelectedState }) => {
   );
 };
 
+
 const Suggestion = ({ display, onClick }) => {
   return (
     <div onClick={onClick} className="suggestion">
-      {display}
+        {display.charAt(0).toUpperCase() + display.slice(1)} 
     </div>
   );
 };

@@ -2,9 +2,23 @@ import React from "react";
 
 import TableRow from "./TableRow";
 
+import { STATE_CODES } from "../../../utils/constants";
+
+import { useSelector } from "react-redux";
+import {
+  selectData,
+  selectDataError,
+  selectDataLoading,
+} from "../../../store/dataSlice";
+
 import "./index.css";
 
 const Table = () => {
+  const data = useSelector(selectData);
+  const loading = useSelector(selectDataLoading);
+  const error = useSelector(selectDataError);
+  if (loading) return <div>Loading</div>
+  if (error) return <div>coudn't get data</div>
   return (
     <div className="tableCointainer">
       <div className="tableGrid">
@@ -16,17 +30,25 @@ const Table = () => {
             <div>Confirmed</div>
           </div>
           <div className="cell heading">
-            <div>Active</div>
+            <div>Recovered</div>
           </div>
           <div className="cell heading">
-            <div>Recovered</div>
+            <div>Tested</div>
           </div>
         </div>
         {/* row */}
-        <TableRow/>
-        <TableRow/>
-        <TableRow/>
-        <TableRow/>
+        {Object.keys(data).map((code) =>
+          code !== "TT" && STATE_CODES[code] ? (
+            <TableRow
+              field1={STATE_CODES[code]}
+              field2={data[code].total.confirmed}
+              field3={data[code].total.recovered}
+              field4={data[code].total.tested}
+            />
+          ) : (
+            <></>
+          )
+        )}
       </div>
     </div>
   );
