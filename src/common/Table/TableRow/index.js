@@ -4,8 +4,8 @@ import React from "react";
 const TableRow = ({field1,field2,field3,field4}) => {
     return(
         <div className="row">
-          <div className="cell">
-            <div className="cell">{field1}</div>
+          <div className="cell1">
+           {field1}
           </div>
           <div className="cell statistic">
             <div className="total" title="2023814">

@@ -44,11 +44,17 @@
     padding: 0 20px 0 20px;
   }
   .searchBar{
-    width: 150px;
+    width: 170px;
   }
   .logoNavTitle{
-    font-size: 14px;
+    font-size: 16px;
   }
+}
+
+@media (min-width:1367px){
+  .navCointainer{ 
+    padding:0px 150px;    
+}
 }
 
 .searchInput {

@@ -1,10 +1,14 @@
 import React, { useState } from "react";
 
 import OverviewCard from "./OverviewCard";
-import DropDown from "./DropDown";
+import DropDown from "../DropDown";
+
+import { STATE_CODES } from "../../utils/constants";
 
 import "./index.css";
 
+
+const list = Object.keys(STATE_CODES);
 const Overview = ({ data }) => {
   const [selectedState, setSelectedState] = useState("TT");
   const currStateData = data[selectedState];
@@ -16,14 +20,16 @@ const Overview = ({ data }) => {
         <div className="OverviewHeadingCointainer">
           <div className="homeHeading">Overview</div>
           <DropDown
-            selectedState={selectedState}
-            setSelectedState={setSelectedState}
+            curr={selectedState}
+            setCurr={setSelectedState}
+            list={list}
+            displayMap={STATE_CODES}
           />
         </div>
       </div>
       <div className="overViewCardGrid">
         <OverviewCard
-          type="Coinfirmed"
+          type="Confirmed"
           delta={
             (delta && delta.confirmed) || (delta7 && delta7.confirmed) || 0
           }

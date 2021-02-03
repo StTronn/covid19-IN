@@ -1,7 +1,7 @@
 import React from "react";
-import Counter from "../../../../common/Counter"
+import Counter from "../../Counter"
 
-import  {format,percent} from "../../../../utils"
+import  {format,percent} from "../../../utils"
 
 export default function index({ type, delta, today }) {
   if (!delta) delta=0;

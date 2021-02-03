@@ -7,7 +7,7 @@
     display: grid;
     column-gap: 15px;
     grid-template-columns: repeat(4,1fr);
-    height: 193px;
+    height: 165px;
 }
 
 @media (max-width: 800px) {
@@ -50,17 +50,17 @@
 }
 
 .highlightCardTitle{
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 500;
 }
 
 
 .highlightCardValue{
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 500;
     line-height: 1;
     color: var(--text);
-    margin-bottom: 10px;
+    align-self:end;
 }
 
 .highlightCardChange{

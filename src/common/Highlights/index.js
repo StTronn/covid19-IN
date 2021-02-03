@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import * as _ from "lodash";
 
-import DropDown from "./DropDown";
+import DropDown from "../DropDown";
 import HighlightCard from "./HighlightCard";
 
 import "./index.css";
+
+const list=['confirmed','tested','recovered','vaccinated']
 
 const Highlights = ({ data }) => {
   const [selectedParam, setSelectedParam] = useState("confirmed");
@@ -25,8 +27,9 @@ const Highlights = ({ data }) => {
       >
         <div className="homeHeading">Hot Reigons</div>
         <DropDown
-          selectedParam={selectedParam}
-          setSelectedParam={setSelectedParam}
+          curr={selectedParam}
+          setCurr={setSelectedParam}
+          list={list}
         />
       </div>
       <div className="higlightCardGrid">

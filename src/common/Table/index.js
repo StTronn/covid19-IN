@@ -2,14 +2,14 @@ import React from "react";
 
 import TableRow from "./TableRow";
 
-import { STATE_CODES } from "../../../utils/constants";
+import { STATE_CODES } from "../../utils/constants";
 
 import { useSelector } from "react-redux";
 import {
   selectData,
   selectDataError,
   selectDataLoading,
-} from "../../../store/dataSlice";
+} from "../../store/dataSlice";
 
 import "./index.css";
 

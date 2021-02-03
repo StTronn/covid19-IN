@@ -1,8 +1,8 @@
 import React from "react";
 
-import { STATE_CODES } from "../../../../utils/constants";
-import { percent,format } from "../../../../utils/";
-import Counter from "../../../../common/Counter/";
+import { STATE_CODES } from "../../../utils/constants";
+import { percent,format } from "../../../utils";
+import Counter from "../../../common/Counter/";
 
 const HighlightCard = ({ obj, selectedParam }) => {
   const delta =getDelta(obj,selectedParam);
