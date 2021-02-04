@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+import {format} from "../../../utils"
+
 const TableRow = ({ field1, field2, field3, field4, link }) => {
   return (
     <div className="row">
@@ -10,19 +12,17 @@ const TableRow = ({ field1, field2, field3, field4, link }) => {
       </div>
       <div className="cell statistic">
         <div className="total" title="2023814">
-          {field2}
+          {field2?format(field2): "NA"}
         </div>
       </div>
       <div className="cell statistic">
         <div className="total" title="44199">
-          {field3}
+          {field3?format(field3): "NA"}
         </div>
       </div>
       <div className="cell statistic text-right">
         <div className="total" title="1927335">
-          {field4}
-          <br />
-          <div className="text-right subStatistic growwPrim">54%</div>
+          {field4?format(field4): "NA"}
         </div>
       </div>
     </div>

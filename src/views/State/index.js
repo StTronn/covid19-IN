@@ -13,7 +13,6 @@ import Table from "../../common/Table";
 
 import { STATE_CODES } from "../../utils/constants";
 
-import "./index.css";
 
 const State = () => {
   const { code } = useParams();

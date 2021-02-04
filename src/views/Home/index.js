@@ -11,7 +11,6 @@ import Overview from "../../common/Overview";
 import Highlights from "../../common/Highlights";
 import Table from "../../common/Table";
 
-import "./index.css";
 
 const Home = () => {
   const data = useSelector(selectData);

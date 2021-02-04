@@ -1,21 +1,24 @@
 .tableCointainer {
-  max-width:calc(100vw ); 
+  max-width: calc(100vw);
   overflow-x: auto;
 }
 
 .tableGrid {
   display: grid;
-  grid-template-columns: minmax(160px,auto) minmax(110px,1fr) minmax(110px,1fr) minmax(110px,1fr);
+  grid-template-columns: minmax(160px, auto) minmax(110px, 1fr) minmax(
+      110px,
+      1fr
+    ) minmax(110px, 1fr);
   grid-template-rows: auto;
   border-radius: 7px 7px 0 0;
-  box-shadow: 0 1px 4px 0 var(--boxShadow);
+  box-shadow: -9 1px 4px 0 var(--boxShadow);
+  border-collapse: collapse;
   min-width: 500px;
   font-size: 14px;
 }
 .row {
   display: contents;
 }
-
 
 .row .heading {
   background: var(--quaternaryBg);
@@ -26,20 +29,20 @@
   border-bottom: 1px solid var(--border);
 }
 
-.row .cell1{
+.row .cell1 {
   display: grid;
   align-items: center;
-  padding-left:11px;
+  padding-left: 11px;
   min-height: 55px;
   border-bottom: 1px solid var(--border);
 }
-.link:hover{
+.link:hover {
   text-decoration: underline;
 }
 .row .cell {
   display: grid;
   align-items: center;
-  padding:0 4px;
+  padding: 0 4px;
   min-height: 55px;
   text-align: center;
   justify-items: center;
