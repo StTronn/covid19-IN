@@ -2,23 +2,11 @@ import React from "react";
 
 import TableRow from "./TableRow";
 
-import { STATE_CODES } from "../../utils/constants";
-
-import { useSelector } from "react-redux";
-import {
-  selectData,
-  selectDataError,
-  selectDataLoading,
-} from "../../store/dataSlice";
+import routes from "../../router/webRoutes";
 
 import "./index.css";
 
-const Table = () => {
-  const data = useSelector(selectData);
-  const loading = useSelector(selectDataLoading);
-  const error = useSelector(selectDataError);
-  if (loading) return <div>Loading</div>
-  if (error) return <div>coudn't get data</div>
+const Table = ({ dataList, displayMap,link }) => {
   return (
     <div className="tableCointainer">
       <div className="tableGrid">
@@ -37,18 +25,16 @@ const Table = () => {
           </div>
         </div>
         {/* row */}
-        {Object.keys(data).map((code) =>
-          code !== "TT" && STATE_CODES[code] ? (
-            <TableRow
-              field1={STATE_CODES[code]}
-              field2={data[code].total.confirmed}
-              field3={data[code].total.recovered}
-              field4={data[code].total.tested}
-            />
-          ) : (
-            <></>
-          )
-        )}
+        {dataList.map((o) => (
+          <TableRow
+            link={link?`${routes.STATE_NULL}/${o.code}`:null}
+            key={o.code}
+            field1={displayMap ? displayMap[o.code] : o.code}
+            field2={o.total.confirmed}
+            field3={o.total.recovered}
+            field4={o.total.tested}
+          />
+        ))}
       </div>
     </div>
   );

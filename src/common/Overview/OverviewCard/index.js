@@ -1,7 +1,7 @@
 import React from "react";
 import Counter from "../../Counter"
 
-import  {format,percent} from "../../../utils"
+import  {format} from "../../../utils"
 
 export default function index({ type, delta, today }) {
   if (!delta) delta=0;
@@ -12,9 +12,8 @@ export default function index({ type, delta, today }) {
         <div className="overViewCardDesc text-right">
           <div><Counter end={today}/></div>
           <div className="overviewCardDayChange growwPrim">
-            {format(delta)}
+            {format(delta)|| "NA"}
             {" "}
-            ({percent(today, delta)}%)
           </div>
         </div>
       </div>

@@ -3,14 +3,12 @@ import React, { useState } from "react";
 import OverviewCard from "./OverviewCard";
 import DropDown from "../DropDown";
 
-import { STATE_CODES } from "../../utils/constants";
 
 import "./index.css";
 
 
-const list = Object.keys(STATE_CODES);
-const Overview = ({ data }) => {
-  const [selectedState, setSelectedState] = useState("TT");
+const Overview = ({ data,parent,dropList,displayMap }) => {
+  const [selectedState, setSelectedState] = useState(parent);
   const currStateData = data[selectedState];
   const { delta, delta7, total } = currStateData;
 
@@ -22,8 +20,8 @@ const Overview = ({ data }) => {
           <DropDown
             curr={selectedState}
             setCurr={setSelectedState}
-            list={list}
-            displayMap={STATE_CODES}
+            list={dropList}
+            displayMap={displayMap}
           />
         </div>
       </div>

@@ -1,6 +1,10 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import routes from "../../router/webRoutes";
+
 import Moon from "./images/moon.svg";
 import Sun from "./images/sun.svg";
+
 import "./index.css";
 
 const Nav = () => {
@@ -15,7 +19,9 @@ const Nav = () => {
     <div style={{ width: "100vw", maxWidth: "100%" }}>
       <div className="navCointainer ">
         <div className="logoNav">
-          <div className="logoNavTitle">Covid-In</div>
+          <Link to={routes.HOME}>
+            <div className="logoNavTitle">Covid-In</div>
+          </Link>
         </div>
         <div className="searchBar card">
           <input className="searchInput" placeholder="Search State"></input>
@@ -47,13 +53,13 @@ const findIntialTheme = () => {
     return cache;
   }
 
-  let theme='light'
+  let theme = "light";
   if (
     window.matchMedia &&
     window.matchMedia("(prefers-color-scheme: dark)").matches
   ) {
-    theme='dark';
-  } 
+    theme = "dark";
+  }
   document.documentElement.setAttribute("data-theme", theme);
   return theme;
 };

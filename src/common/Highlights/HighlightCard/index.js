@@ -1,20 +1,30 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-import { STATE_CODES } from "../../../utils/constants";
-import { percent,format } from "../../../utils";
+import { format } from "../../../utils";
 import Counter from "../../../common/Counter/";
 
-const HighlightCard = ({ obj, selectedParam }) => {
-  const delta =getDelta(obj,selectedParam);
+const HighlightCard = ({ obj, selectedParam, displayMap, link }) => {
+  const delta = getDelta(obj, selectedParam);
   return (
     <div className="highlightCard card">
       <div className="highlightCardContentWrapper">
-        <div className="highlightCardTitle">{STATE_CODES[obj.code]}</div>
+        <div className="highlightCardTitle">
+          {link && (
+            <Link to={link}>
+              {displayMap ? displayMap[obj.code] : obj.code}
+            </Link>
+          )}
+          {!link && (displayMap ? displayMap[obj.code] : obj.code)}
+        </div>
         <div className="highlightCardValue">
-          {<Counter end={obj.total[selectedParam]} />}
+          {obj.total[selectedParam] ? (
+            <Counter end={obj.total[selectedParam]} />
+          ) : (
+            "NA"
+          )}
           <div className="highlightCardChange growwPrim">
-            {format(delta)}{" "}
-           ({percent(obj.total[selectedParam],delta)}%)
+            {delta ? format(delta) : 0}{" "}
           </div>
         </div>
       </div>

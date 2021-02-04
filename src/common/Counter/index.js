@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import {format} from "../../utils/"
 
-const totalAnimationTime = 1000;
-const refreshRate = 100;
+const totalAnimationTime = 900;
+const refreshRate = 50;
 
 const Count = ({end}) => {
 

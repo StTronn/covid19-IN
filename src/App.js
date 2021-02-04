@@ -7,7 +7,6 @@ import {
 
 
 import Routing from "./router";
-import Nav from "./common/Nav";
 
 import "./App.css";
 
@@ -19,7 +18,6 @@ function App() {
   }, [dispatch])
   return (
     <>
-    <Nav/>
     <Routing/>
     </>
   );

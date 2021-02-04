@@ -32,7 +32,9 @@
   padding-left:11px;
   min-height: 55px;
   border-bottom: 1px solid var(--border);
-
+}
+.link:hover{
+  text-decoration: underline;
 }
 .row .cell {
   display: grid;
