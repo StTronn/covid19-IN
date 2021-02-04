@@ -5,6 +5,8 @@ import routes from "../../router/webRoutes";
 import Moon from "./images/moon.svg";
 import Sun from "./images/sun.svg";
 
+import Search from "./Search";
+
 import "./index.css";
 
 const Nav = () => {
@@ -23,15 +25,7 @@ const Nav = () => {
             <div className="logoNavTitle">Covid-In</div>
           </Link>
         </div>
-        <div className="searchBar card">
-          <input className="searchInput" placeholder="Search State"></input>
-
-          <img
-            className="searchImg"
-            alt="searchIcon"
-            src="https://assets-netstorage.groww.in/website-assets/prod/1.3.3/build/client/images/search.494f6987.svg"
-          />
-        </div>
+        <Search/>
         <div className="icons">
           <img
             className="themeToggle"

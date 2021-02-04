@@ -1,3 +1,4 @@
+import React,{useEffect} from "react";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 
@@ -22,7 +23,6 @@ const State = () => {
   if (loading) return <div>Loading...</div>;
   if (error || !data) return <div>No data availble</div>;
   let stateData = data[code].districts;
-
   const dataList = Object.keys(stateData).map((key) => {
     let obj = { ...{ code: key }, ...stateData[key] };
     return obj;
@@ -32,7 +32,7 @@ const State = () => {
   const overviewData = {  ...{ [stateName]: data[code] }, ...stateData};
   console.log(overviewData);
   return (
-    <div className="homeCointainer px-df">
+    <div key={code} className="homeCointainer px-df">
       <div className="left" style={{ display: "grid", rowGap: "50px" }}>
         <Overview
           data={overviewData}
