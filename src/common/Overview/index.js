@@ -3,12 +3,11 @@ import React, { useState } from "react";
 import OverviewCard from "./OverviewCard";
 import DropDown from "../DropDown";
 
+import "./overview.css";
 
-import "./index.css";
-
-
-const Overview = ({ data,parent,dropList,displayMap }) => {
+const Overview = ({ data, parent, allEntries }) => {
   const [selectedState, setSelectedState] = useState(parent);
+
   const currStateData = data[selectedState];
   const { delta, delta7, total } = currStateData;
 
@@ -20,8 +19,7 @@ const Overview = ({ data,parent,dropList,displayMap }) => {
           <DropDown
             curr={selectedState}
             setCurr={setSelectedState}
-            list={dropList}
-            displayMap={displayMap}
+            dropDownEntries={allEntries}
           />
         </div>
       </div>

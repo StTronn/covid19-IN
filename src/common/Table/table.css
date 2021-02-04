@@ -29,13 +29,14 @@
   border-bottom: 1px solid var(--border);
 }
 
-.row .cell1 {
+.cell1 {
   display: grid;
   align-items: center;
   padding-left: 11px;
   min-height: 55px;
   border-bottom: 1px solid var(--border);
 }
+
 .link:hover {
   text-decoration: underline;
 }

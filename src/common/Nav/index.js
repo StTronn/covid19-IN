@@ -7,7 +7,7 @@ import Sun from "./images/sun.svg";
 
 import Search from "./Search";
 
-import "./index.css";
+import "./nav.css";
 
 const Nav = () => {
   const [theme, setTheme] = useState(findIntialTheme());
@@ -25,7 +25,7 @@ const Nav = () => {
             <div className="logoNavTitle">Covid-In</div>
           </Link>
         </div>
-        <Search/>
+        <Search />
         <div className="icons">
           <img
             className="themeToggle"

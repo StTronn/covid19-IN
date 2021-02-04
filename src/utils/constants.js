@@ -1,5 +1,5 @@
 export const STATE_CODES = {
-  TT : "India",
+  TT: "India",
   AN: "Andaman and Nicobar Islands",
   AP: "Andhra Pradesh",
   AR: "Arunachal Pradesh",
@@ -37,3 +37,15 @@ export const STATE_CODES = {
   UT: "Uttarakhand",
   WB: "West Bengal",
 };
+
+export const COVID_PARAMS = [
+  { confirmed: "Confirmed" },
+  { tested: "Tested" },
+  { recovered: "Recovered" },
+  { vaccinated: "Vaccinated" },
+];
+
+const tableFields=['Confirmed','Recovered','Tested'] 
+
+export const HOME_TABLE_CL=['State/UT'].concat(tableFields);
+export const STATE_TABLE_CL=['Districts/City'].concat(tableFields);

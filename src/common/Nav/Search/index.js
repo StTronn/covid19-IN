@@ -5,11 +5,14 @@ import routes from "../../../router/webRoutes";
 import { STATE_CODES } from "../../../utils/constants";
 
 const initialList = Object.keys(STATE_CODES).filter((code) => code !== "TT");
+
 const Search = () => {
   const history = useHistory();
+
   const [dropwDownVisible, setDropDownVisible] = useState(false);
   const [list, setList] = useState(initialList);
   const [input, setInput] = useState("");
+
   useEffect(() => {
     const newList = initialList.filter((item) =>
       fuzzy(STATE_CODES[item], input)

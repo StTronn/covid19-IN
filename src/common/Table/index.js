@@ -4,30 +4,23 @@ import TableRow from "./TableRow";
 
 import routes from "../../router/webRoutes";
 
-import "./index.css";
+import "./table.css";
 
-const Table = ({ dataList, displayMap,link }) => {
+const Table = ({ columns, dataList, displayMap, link }) => {
   return (
     <div className="tableCointainer">
       <div className="tableGrid">
         <div className="row headCointainer">
-          <div className="cell heading">
-            <div>State/UT</div>
-          </div>
-          <div className="cell heading">
-            <div>Confirmed</div>
-          </div>
-          <div className="cell heading">
-            <div>Recovered</div>
-          </div>
-          <div className="cell heading">
-            <div>Tested</div>
-          </div>
+          {columns.map((item) => (
+            <div className="cell heading">
+              <div>{item}</div>
+            </div>
+          ))}
         </div>
         {/* row */}
         {dataList.map((o) => (
           <TableRow
-            link={link?`${routes.STATE_NULL}/${o.code}`:null}
+            link={link ? `${routes.STATE_NULL}/${o.code}` : null}
             key={o.code}
             field1={displayMap ? displayMap[o.code] : o.code}
             field2={o.total.confirmed}

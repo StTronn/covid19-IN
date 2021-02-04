@@ -6,31 +6,34 @@ import HighlightCard from "./HighlightCard";
 
 import routes from "../../router/webRoutes";
 
-import "./index.css";
+import "./highlight.css";
 
-const list = ["confirmed", "tested", "recovered", "vaccinated"];
+import { COVID_PARAMS } from "../../utils/constants";
+import { getValueFromKey } from "../../utils/helper";
 
-const Highlights = ({ dataList, displayMap, link }) => {
+const Highlights = ({ allEntries, dataList, link }) => {
   const [selectedParam, setSelectedParam] = useState("confirmed");
-  const sortedList = _.orderBy(dataList, (item) => item.total[selectedParam], [
-    "desc",
-  ]).slice(0, 4);
+
+  const sortedList = getSortedList(dataList, selectedParam);
 
   return (
     <div>
       <div
-        className="OverviewHeadingCointainer"
-        style={{ marginBottom: "30px" }}
+        className="OverviewHeadingCointainer m-b-30"
       >
         <div className="homeHeading">Hot Reigons</div>
-        <DropDown curr={selectedParam} setCurr={setSelectedParam} list={list} />
+        <DropDown
+          curr={selectedParam}
+          setCurr={setSelectedParam}
+          dropDownEntries={COVID_PARAMS}
+        />
       </div>
       <div className="higlightCardGrid">
         {sortedList.map((o) => (
           <HighlightCard
             link={link ? `${routes.STATE_NULL}/${o.code}` : null}
             key={o.code}
-            displayMap={displayMap}
+            name={getValueFromKey(allEntries, o.code)}
             obj={o}
             selectedParam={selectedParam}
           />
@@ -39,5 +42,8 @@ const Highlights = ({ dataList, displayMap, link }) => {
     </div>
   );
 };
+
+const getSortedList = (dataList, field) =>
+  _.orderBy(dataList, (item) => item.total[field], ["desc"]).slice(0, 4);
 
 export default Highlights;
