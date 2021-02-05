@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 
 import { format } from "../../utils/helper";
 
-const totalAnimationTime = 900;
-const refreshRate = 50;
+const ANIMATION_TIME = 900;
+const REFRESH_RATE = 50;
 
 const Count = ({ end }) => {
   const [count, setCount] = useState(0);
@@ -11,7 +11,7 @@ const Count = ({ end }) => {
   useEffect(() => {
     let start = count;
     const positive = start > end ? false : true;
-    const step = Math.round((end - start) / (totalAnimationTime / refreshRate));
+    const step = Math.round((end - start) / (ANIMATION_TIME / REFRESH_RATE));
 
     let interval = setInterval(() => {
       start += step;
@@ -21,7 +21,7 @@ const Count = ({ end }) => {
         setCount(end);
         clearInterval(interval);
       }
-    }, refreshRate);
+    }, REFRESH_RATE);
 
     //eslint-disable-next-line
   }, [end]);
