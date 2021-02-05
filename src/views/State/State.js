@@ -22,7 +22,7 @@ const State = () => {
   const dataList = getDataList(stateData);
   const stateName = STATE_CODES[code];
   const overviewData = { ...{ [stateName]: data[code] }, ...stateData };
-  const allEntries = Object.keys(overviewData).map((key) => ({ [key]: key }));
+  const allEntries = getEntries(overviewData);
 
   return (
     <div key={code} className="homeCointainer px-df">
@@ -45,5 +45,7 @@ const getDataList = (data) =>
     let obj = { ...{ code: key }, ...data[key] };
     return obj;
   });
+
+const getEntries =(data)=>Object.keys(data).map((key) => ({ [key]: key })); 
 
 export default State;
