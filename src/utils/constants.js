@@ -1,5 +1,5 @@
 export const STATE_CODES = {
-  TT : "India",
+  TT: "India",
   AN: "Andaman and Nicobar Islands",
   AP: "Andhra Pradesh",
   AR: "Arunachal Pradesh",
@@ -7,8 +7,7 @@ export const STATE_CODES = {
   BR: "Bihar",
   CH: "Chandigarh",
   CT: "Chhattisgarh",
-  DN: "Dadra and Nagar Haveli",
-  DD: "Daman and Diu",
+  DN: "Dadra and Nagar Haveli & Daman",
   DL: "Delhi",
   GA: "Goa",
   GJ: "Gujarat",
@@ -32,9 +31,21 @@ export const STATE_CODES = {
   RJ: "Rajasthan",
   SK: "Sikkim",
   TN: "Tamil Nadu",
-  TS: "Telangana",
+  TG: "Telangana",
   TR: "Tripura",
   UP: "Uttar Pradesh",
-  UK: "Uttarakhand",
+  UT: "Uttarakhand",
   WB: "West Bengal",
 };
+
+export const COVID_PARAMS = [
+  { confirmed: "Confirmed" },
+  { tested: "Tested" },
+  { recovered: "Recovered" },
+  { vaccinated: "Vaccinated" },
+];
+
+const tableFields=['Confirmed','Recovered','Tested'] 
+
+export const HOME_TABLE_CL=['State/UT'].concat(tableFields);
+export const STATE_TABLE_CL=['Districts/City'].concat(tableFields);

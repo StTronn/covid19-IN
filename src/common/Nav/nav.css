@@ -1,0 +1,88 @@
+.navCointainer {
+  display: grid;
+  padding: 0 120px 0 120px;
+  grid-template-columns: auto 1fr auto;
+  border-bottom: 1px solid var(--boxShadow);
+  align-items: center;
+  min-height: 83px;
+}
+
+
+.logoNavTitle {
+  font-weight: 500;
+  font-size: 28px;
+  margin-bottom: 4px;
+  letter-spacing: 0.1px;
+  color: var(--text);
+}
+
+.searchBar {
+  display: flex;
+  align-items: center;
+  width: 350px;
+  height: 41px;
+  border-radius: 4px;
+  position: relative;
+  font-size: 17px;
+  justify-self: center;
+}
+
+@media (max-width: 800px) {
+  .navCointainer {
+    padding: 0 40px 0 40px;
+  }
+  .searchBar{
+    width: 250px;
+  }
+  .logoNavTitle{
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 500px) {
+  .navCointainer {
+    padding: 0 20px 0 20px;
+  }
+  .searchBar{
+    width: 170px;
+  }
+  .logoNavTitle{
+    font-size: 16px;
+  }
+}
+
+@media (min-width:1367px){
+  .navCointainer{ 
+    padding:0px 150px;    
+}
+}
+
+.searchInput {
+  font-size: 15px;
+  height: 29px;
+  outline: none;
+  padding-left: 13px;
+  width: 100%;
+  color: var(--text);
+  border: none;
+  background: var(--constantTransparent);
+}
+
+.themeToggle {
+  cursor: pointer;
+}
+
+.searchImg {
+  color: var(--text130);
+  margin: 0 10px;
+  position: relative;
+  width: 21px;
+  opacity: 0.8;
+  overflow: hidden;
+  max-width: 19px;
+  max-height: 19px;
+  top: 1px;
+}
+
+.icons {
+}

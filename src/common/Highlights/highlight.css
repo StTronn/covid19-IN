@@ -1,0 +1,74 @@
+.highlightsCointainer{
+    display: grid;
+    row-gap: 50px;
+}
+
+.higlightCardGrid{
+    display: grid;
+    column-gap: 15px;
+    grid-template-columns: repeat(4,1fr);
+    height: 165px;
+}
+
+@media (max-width: 800px) {
+  .higlightCardGrid {
+    grid-template-columns: repeat(2,1fr);
+    row-gap: 15px;
+    padding:0 180px 0 0;
+    height:290px;
+  }
+}
+
+@media (max-width: 500px) {
+  .higlightCardGrid {
+    grid-template-columns: repeat(2,1fr);
+    padding:0;
+  }
+}
+
+.highlightCard{
+    transition: all 0.3s ease;
+    cursor: pointer;
+    -webkit-font-smoothing: subpixel-antialiased;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+.highlightCard:hover{
+    transform: scale(1.009);
+}
+
+.highlightCardContentWrapper{
+    display: grid;
+    width: 100%;
+    height: 100%;
+    grid-template-rows: 1fr 1fr;
+    grid-auto-flow: row;
+    align-items: start;
+    padding: 15px 15px 15px 15px;
+    overflow: hidden;
+    box-sizing: border-box;
+
+}
+
+.highlightCardTitle{
+    font-size: 16px;
+    font-weight: 500;
+}
+
+
+.highlightCardValue{
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1;
+    color: var(--text);
+    align-self:end;
+}
+
+.highlightCardChange{
+    margin:10px 0 0 0;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.14;
+}
+
+

@@ -1,7 +1,13 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import routes from "../../router/webRoutes";
+
 import Moon from "./images/moon.svg";
 import Sun from "./images/sun.svg";
-import "./index.css";
+
+import Search from "./Search";
+
+import "./nav.css";
 
 const Nav = () => {
   const [theme, setTheme] = useState(findIntialTheme());
@@ -15,17 +21,11 @@ const Nav = () => {
     <div style={{ width: "100vw", maxWidth: "100%" }}>
       <div className="navCointainer ">
         <div className="logoNav">
-          <div className="logoNavTitle">Covid-In</div>
+          <Link to={routes.HOME}>
+            <div className="logoNavTitle">Covid-In</div>
+          </Link>
         </div>
-        <div className="searchBar card">
-          <input className="searchInput" placeholder="Search State"></input>
-
-          <img
-            className="searchImg"
-            alt="searchIcon"
-            src="https://assets-netstorage.groww.in/website-assets/prod/1.3.3/build/client/images/search.494f6987.svg"
-          />
-        </div>
+        <Search />
         <div className="icons">
           <img
             className="themeToggle"
@@ -47,13 +47,13 @@ const findIntialTheme = () => {
     return cache;
   }
 
-  let theme='light'
+  let theme = "light";
   if (
     window.matchMedia &&
     window.matchMedia("(prefers-color-scheme: dark)").matches
   ) {
-    theme='dark';
-  } 
+    theme = "dark";
+  }
   document.documentElement.setAttribute("data-theme", theme);
   return theme;
 };

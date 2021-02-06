@@ -1,0 +1,35 @@
+.menuWrapperDetails {
+  padding: 12px 0 12px 0;
+  height: fit-content;
+  align-self: center;
+  display: grid;
+}
+
+.menuItemDetails {
+  padding: 18px 16px;
+  justify-content: space-between;
+  color: var(--text);
+
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+}
+
+
+.menuItemSelectedDetails {
+  background: var(--primaryClr05);
+  margin:24px 12px;
+  font-size: 14px;
+
+}
+
+.updateTitle{
+    font-size: 21px;
+    font-weight: 500;
+    letter-spacing: -0.23px;
+    color: var(--text);
+    margin-bottom: 40px;
+    text-align: center;
+    margin-left:4px;
+}

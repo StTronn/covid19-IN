@@ -1,5 +1,5 @@
 import React from 'react'
-import './index.css'
+import './nav.css'
 
 const NotFound = () => {
     return (

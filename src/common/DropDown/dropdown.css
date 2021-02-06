@@ -1,0 +1,69 @@
+.overViewDrop > svg {
+  margin-left: 4px;
+  width: 1.25rem;
+
+  z-index: 99;
+}
+
+.dropDown {
+  position: absolute;
+  background: var(--primaryBg);
+  width: 100%;
+  margin-top: 3px;
+  transform-origin: top left;
+  box-shadow: 0 1px 5px 0 var(--boxShadow);
+  border-top: none;
+  border-radius: 0 0 4px 4px;
+  margin-right: 2px;
+  max-height:250px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  z-index: 99;
+}
+
+
+.dropDown::-webkit-scrollbar {
+    width: 2px;
+}
+
+.dropDown::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+    border-radius: 10px;
+}
+
+.dropDown::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    box-shadow: inset 0 0 6px var(--primaryClr); 
+}
+
+@media (max-width: 600px) {
+  .overViewDrop {
+    font-size:14px;
+    padding: 8px 12px;
+  }
+  .overViewDropCointainer{
+    margin-right: 1px;
+  }
+}
+
+.suggestion {
+  font-size: 14px;
+  padding: 13px;
+  letter-spacing: 0.4px;
+  cursor: pointer;
+  transition: 0.1s;
+}
+
+.suggestion-high{
+  font-size: 14px;
+  padding: 13px;
+  letter-spacing: 0.4px;
+  cursor: pointer;
+  transition: 0.1s;
+  background: var(--constantSecondaryClr10);
+
+}
+
+.suggestion:hover {
+  background: var(--constantSecondaryClr10);
+}
