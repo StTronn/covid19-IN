@@ -6,7 +6,10 @@ import { getValueFromKey } from "../../utils/helper";
 
 const DropDown = ({ curr, setCurr, dropDownEntries }) => {
   const [dropwDownVisible, setDropDownVisible] = useState(false);
-
+  const setSuggestion = (key) => {
+    setCurr(key);
+    setDropDownVisible(false);
+  };
   return (
     <div className="overViewDropCointainer">
       <div
@@ -26,10 +29,7 @@ const DropDown = ({ curr, setCurr, dropDownEntries }) => {
               <Suggestion
                 key={key}
                 display={value}
-                onClick={() => {
-                  setCurr(key);
-                  setDropDownVisible(false);
-                }}
+                onClick={()=>{setSuggestion(key)}}
               />
             );
           })}

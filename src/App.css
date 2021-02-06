@@ -121,8 +121,11 @@ body {
 }
 
 .card {
-   border-radius: 6px;
-   box-shadow: 0 1px 7px 0 var(--boxShadow); 
+  border-radius: 6px;
+  box-shadow: 0 1px 7px 0 var(--boxShadow);
+}
+.hidden {
+  display: none;
 }
 
 .text-right {
@@ -166,7 +169,7 @@ body {
   color: var(--text);
 }
 
-.disable-p-events{
+.disable-p-events {
   pointer-events: none;
 }
 
@@ -176,13 +179,12 @@ body {
 .growwPrim {
   color: var(--primaryClr);
 }
-.growwYellow{
+.growwYellow {
   color: var(--growwYellow);
 }
-.growwAquaBlue{
-  color:var(--aquaBlue);
+.growwAquaBlue {
+  color: var(--aquaBlue);
 }
-
 
 input {
   outline: none;
@@ -228,9 +230,9 @@ select:-webkit-autofill:focus {
   color: transparent;
 }
 
-a{
+a {
   color: inherit;
-  text-decoration: none; 
+  text-decoration: none;
 }
 
 input[type="number"]::-webkit-inner-spin-button,

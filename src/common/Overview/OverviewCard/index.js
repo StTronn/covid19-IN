@@ -22,6 +22,6 @@ export default function index({ type, delta, today }) {
 const colorMap = {
   Confirmed: "growwRed",
   Recovered: "growwPrim",
-  Tested: "growwYellow",
-  Vaccinated: "growwAquaBlue",
+  Tested: "growwPrim",
+  Vaccinated: "growwPrim",
 };
