@@ -176,6 +176,13 @@ body {
 .growwPrim {
   color: var(--primaryClr);
 }
+.growwYellow{
+  color: var(--growwYellow);
+}
+.growwAquaBlue{
+  color:var(--aquaBlue);
+}
+
 
 input {
   outline: none;

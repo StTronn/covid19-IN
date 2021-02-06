@@ -6,6 +6,7 @@ import { STATE_CODES, HOME_TABLE_CL } from "../../utils/constants";
 import Overview from "../../common/Overview";
 import Highlights from "../../common/Highlights";
 import Table from "../../common/Table";
+import Updates from "../../common/Updates";
 
 const Home = () => {
   const { data, loading, error } = useSelector(selectDataStore);
@@ -31,7 +32,9 @@ const Home = () => {
           displayMap={STATE_CODES}
         />
       </div>
-      <div>Updates</div>
+      <div>
+        <Updates/>
+      </div>
     </div>
   );
 };

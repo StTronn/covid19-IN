@@ -35,7 +35,7 @@ const State = () => {
         <Highlights allEntries={allEntries} dataList={dataList} />
         <Table columns={STATE_TABLE_CL} dataList={dataList} data={stateData} />
       </div>
-      <div>Updates</div>
+      <div></div>
     </div>
   );
 };

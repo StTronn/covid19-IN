@@ -10,7 +10,7 @@ export default function index({ type, delta, today }) {
         <div className="overViewCardDesc"> {type}</div>
         <div className="overViewCardDesc text-right">
           <div>{today ? <Counter end={today} /> : "NA"}</div>
-          <div className="overviewCardDayChange growwPrim">
+          <div className={`overviewCardDayChange ${colorMap[type]}`}>
             {format(delta) || "NA"}{" "}
           </div>
         </div>
@@ -18,3 +18,10 @@ export default function index({ type, delta, today }) {
     </div>
   );
 }
+
+const colorMap = {
+  Confirmed: "growwRed",
+  Recovered: "growwPrim",
+  Tested: "growwYellow",
+  Vaccinated: "growwAquaBlue",
+};
