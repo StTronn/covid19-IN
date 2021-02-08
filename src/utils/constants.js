@@ -45,7 +45,17 @@ export const COVID_PARAMS = [
   { vaccinated: "Vaccinated" },
 ];
 
-const tableFields=['Confirmed','Recovered','Tested'] 
+const tableFields = [
+  { key: "confirmed", value: "Confirmed" },
+  { key: "recovered", value: "Recovered" },
+  { key: "tested", value: "Tested" },
+];
 
-export const HOME_TABLE_CL=['State/UT'].concat(tableFields);
-export const STATE_TABLE_CL=['Districts/City'].concat(tableFields);
+export const HOME_TABLE_CL = [
+  { key: "name", value: "State/UT" },
+  ...tableFields,
+];
+export const STATE_TABLE_CL = [
+  { key: "name", value: "District/City" },
+  ...tableFields,
+];

@@ -58,7 +58,7 @@ const getDataList = (data) => {
   return Object.keys(data)
     .filter((code) => code !== "TT")
     .map((key) => {
-      let obj = { ...data[key], ...{ code: key } };
+      let obj = { ...data[key], ...{ code: key,name:STATE_CODES[key] } };
       return obj;
     });
 };

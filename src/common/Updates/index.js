@@ -11,9 +11,10 @@ const Update = () => {
           "https://api.covid19india.org/updatelog/log.json"
         );
         const data = await res.json();
-        console.log({ data });
-        setUpdates(data);
+        console.log();
+        setUpdates(data[0].update.split("\n"));
       } catch (error) {
+        console.log(error);
         setError(true);
       }
     };
@@ -23,16 +24,19 @@ const Update = () => {
   return (
     <>
       <div className="updateTitle">Updates</div>
-        {updates.slice(0,6).map((item) => (
-          <UpdateItem update={item.update} />
-        ))}
+      {updates
+        .slice(0, 6)
+        .map((item) => (item ? <UpdateItem update={item} /> : <></>))}
     </>
   );
 };
 
 const UpdateItem = ({ update }) => {
-  return <div className={"menuItemDetails card menuItemSelectedDetails"}>{update}</div>;
+  return (
+    <div className={"menuItemDetails card menuItemSelectedDetails"}>
+      {update}
+    </div>
+  );
 };
-
 
 export default Update;

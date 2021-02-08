@@ -4,21 +4,26 @@
 }
 
 .tableGrid {
-  display: grid;
-  grid-template-columns: minmax(160px, auto) minmax(110px, 1fr) minmax(
-      110px,
-      1fr
-    ) minmax(110px, 1fr);
-  grid-template-rows: auto;
   border-radius: 7px 7px 0 0;
   box-shadow: -9 1px 4px 0 var(--boxShadow);
   border-collapse: collapse;
   min-width: 500px;
   font-size: 14px;
 }
+
 .row {
-  display: contents;
+  display: grid;
+  grid-template-columns:
+    1fr minmax(110px, 1fr) minmax(110px, 1fr)
+    minmax(110px, 1fr);
+  grid-template-rows: auto;
 }
+
+.row:hover{
+  background: var(--primaryClr05);
+  cursor:pointer;
+}
+
 
 .row .heading {
   background: var(--quaternaryBg);
@@ -64,4 +69,11 @@
 
 .text-right {
   text-align: right;
+}
+
+.sortedCell{
+  display: grid;
+  height: 100%;
+  align-items: center;
+  grid-auto-flow: column;
 }
