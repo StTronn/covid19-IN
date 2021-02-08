@@ -18,21 +18,23 @@ const Nav = () => {
     setTheme(newTheme);
   };
   return (
-    <div style={{ width: "100vw", maxWidth: "100%" }}>
-      <div className="navCointainer ">
-        <div className="logoNav">
-          <Link to={routes.HOME}>
-            <div className="logoNavTitle">Covid-In</div>
-          </Link>
-        </div>
-        <Search />
-        <div className="icons">
-          <img
-            className="themeToggle"
-            alt="dark mode"
-            onClick={toggleTheme}
-            src={theme === "light" ? Moon : Sun}
-          />
+    <div className="navWrapper">
+      <div className="nav">
+        <div className="navCointainer ">
+          <div className="logoNav">
+            <Link to={routes.HOME}>
+              <div className="logoNavTitle">Covid-In</div>
+            </Link>
+          </div>
+          <Search />
+          <div className="icons">
+            <img
+              className="themeToggle"
+              alt="dark mode"
+              onClick={toggleTheme}
+              src={theme === "light" ? Moon : Sun}
+            />
+          </div>
         </div>
       </div>
     </div>
