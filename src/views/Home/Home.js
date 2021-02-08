@@ -41,7 +41,6 @@ const Home = () => {
               dataList={dataList}
               data={data}
               link={true}
-              displayMap={STATE_CODES}
             />
           </div>
         </div>

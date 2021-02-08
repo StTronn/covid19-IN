@@ -27,7 +27,7 @@
     font-weight: 500;
     letter-spacing: -0.23px;
     color: var(--text);
-    margin-bottom: 40px;
-    text-align: center;
-    margin-left:4px;
+    margin-bottom: 42px;
+    margin-left: 12px;
+    /* text-align: center; */
 }

@@ -42,7 +42,7 @@ const State = () => {
 
 const getDataList = (data) =>
   Object.keys(data).map((key) => {
-    let obj = { ...{ code: key }, ...data[key] };
+    let obj = { ...{ code: key }, ...data[key],name:key };
     return obj;
   });
 
