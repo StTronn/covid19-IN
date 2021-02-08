@@ -29,12 +29,14 @@ const Table = ({ columns, dataList: dataListProps, link }) => {
       [sortOrder]
     );
     setDataList(sortedList);
+    //eslint-disable-next-line
   }, [sortOrder, sortParam]);
 
-  console.log(dataList);
   return (
     <div className="tableCointainer">
       <div className="tableGrid">
+
+        {/* heading */}
         <div className="row headCointainer">
           {columns.map((column) => (
             <TableColumn
@@ -45,6 +47,7 @@ const Table = ({ columns, dataList: dataListProps, link }) => {
             />
           ))}
         </div>
+
         {/* row */}
         {dataList.map((o) => (
           <TableRow

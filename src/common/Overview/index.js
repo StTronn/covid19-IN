@@ -5,10 +5,10 @@ import DropDown from "../DropDown";
 
 import "./overview.css";
 
-const Overview = ({ data, parent, allEntries }) => {
-  const [selectedState, setSelectedState] = useState(parent);
+const Overview = ({ dataList, intitalSelected }) => {
+  const [selectedKey, setSelectedKey] = useState(intitalSelected);
 
-  const currStateData = data[selectedState];
+  const currStateData = dataList.find((o) => o.code === selectedKey);
   const { delta, delta7, total } = currStateData;
 
   return (
@@ -17,12 +17,13 @@ const Overview = ({ data, parent, allEntries }) => {
         <div className="OverviewHeadingCointainer">
           <div className="homeHeading">Overview</div>
           <DropDown
-            curr={selectedState}
-            setCurr={setSelectedState}
-            dropDownEntries={allEntries}
+            curr={selectedKey}
+            setCurr={setSelectedKey}
+            dataList={dataList}
           />
         </div>
       </div>
+
       <div className="overViewCardGrid">
         <OverviewCard
           type="Confirmed"

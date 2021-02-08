@@ -11,40 +11,35 @@ import Table from "../../common/Table";
 import Updates from "../../common/Updates";
 
 const Home = () => {
+  //for Msite toggle & genrate class to hide 
   const [displayDash, setDisplayDash] = useState(true);
+  const [dashClass, updateClass] = getHiddenClass(displayDash);
+
   const { data, loading, error } = useSelector(selectDataStore);
 
   if (loading) return <div>Loading...</div>;
   if (error || !data) return <div>No data availble</div>;
 
   const dataList = getDataList(data);
-  const allEntries = getEntries(STATE_CODES);
-  const [dashHidden, updateHidden] = getHiddenClass(displayDash);
+  const childrenDataList = dataList.filter((o) => o.code !== "TT");
+
   return (
     <>
       <div className="homeCointainer px-df">
-        <div className={dashHidden}>
-          <div
-            className={dashHidden}
-            style={{ display: "grid", rowGap: "50px" }}
-          >
-            <Overview data={data} parent="TT" allEntries={allEntries} />
+        <div className={dashClass}>
+          <div style={{ display: "grid", rowGap: "50px" }}>
+            <Overview data={data} intitalSelected="TT" dataList={dataList} />
 
-            <Highlights
-              dataList={dataList}
-              allEntries={allEntries}
-              link={true}
-            />
+            <Highlights dataList={childrenDataList} link={true} />
 
             <Table
               columns={HOME_TABLE_CL}
-              dataList={dataList}
-              data={data}
+              dataList={childrenDataList}
               link={true}
             />
           </div>
         </div>
-        <div className={updateHidden}>
+        <div className={updateClass}>
           <Updates />
         </div>
       </div>
@@ -54,18 +49,12 @@ const Home = () => {
 };
 
 const getDataList = (data) => {
-  return Object.keys(data)
-    .filter((code) => code !== "TT")
-    .map((key) => {
-      let obj = { ...data[key], ...{ code: key,name:STATE_CODES[key] } };
-      return obj;
-    });
+  return Object.keys(data).map((key) => {
+    let obj = { ...data[key], ...{ code: key, name: STATE_CODES[key] } };
+    return obj;
+  });
 };
 
-const getEntries = (STATE_CODES) =>
-  Object.keys(STATE_CODES).map((e) => ({
-    [e]: STATE_CODES[e],
-  }));
 
 const getHiddenClass = (displayDash) => {
   return [

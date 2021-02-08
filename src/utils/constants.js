@@ -39,10 +39,9 @@ export const STATE_CODES = {
 };
 
 export const COVID_PARAMS = [
-  { confirmed: "Confirmed" },
-  { tested: "Tested" },
-  { recovered: "Recovered" },
-  { vaccinated: "Vaccinated" },
+  { code: "confirmed", name: "Confirmed" },
+  { code: "recovered", name: "Recovered" },
+  { code: "tested", name: "Tested" },
 ];
 
 const tableFields = [

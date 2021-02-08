@@ -1,25 +1,32 @@
 import React, { useState, useEffect } from "react";
+
 import "./updates.css";
 
 const Update = () => {
   const [updates, setUpdates] = useState([]);
+  const [loading,setLoading] =useState(false);
   const [error, setError] = useState(false);
+
   useEffect(() => {
     const fetchUpdates = async () => {
+      setLoading(true);
       try {
         const res = await fetch(
           "https://api.covid19india.org/updatelog/log.json"
         );
         const data = await res.json();
-        console.log();
         setUpdates(data[0].update.split("\n"));
+        setLoading(false);
       } catch (error) {
         console.log(error);
         setError(true);
+        setLoading(false);
       }
     };
     fetchUpdates();
   }, []);
+
+  if (loading) return <>Loading...</>;
   if (error) return <>No Data...</>;
   return (
     <>
