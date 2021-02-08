@@ -49,10 +49,14 @@ const Home = () => {
 };
 
 const getDataList = (data) => {
-  return Object.keys(data).map((key) => {
+  //making sure that India appears first in dropdown
+  const retList=[{...data['TT'],...{ code: 'TT', name: STATE_CODES['TT'] }}];
+  const stateList=Object.keys(data).filter(key=>key!=='TT').map((key) => {
     let obj = { ...data[key], ...{ code: key, name: STATE_CODES[key] } };
     return obj;
   });
+
+  return [...retList,...stateList];
 };
 
 

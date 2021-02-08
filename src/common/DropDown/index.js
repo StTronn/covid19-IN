@@ -4,7 +4,7 @@ import "./dropdown.css";
 
 const DropDown = ({ curr, setCurr, dataList }) => {
   const [dropwDownVisible, setDropDownVisible] = useState(false);
-
+  console.log({dataList})
   const setSuggestion = (key) => {
     setCurr(key);
     setDropDownVisible(false);
