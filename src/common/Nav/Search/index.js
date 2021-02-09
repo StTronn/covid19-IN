@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
-import routes from "../../../router/webRoutes";
 
+import { debounce } from "../../../utils/helper";
+import routes from "../../../router/webRoutes";
 import { STATE_CODES } from "../../../utils/constants";
 
 const initialList = Object.keys(STATE_CODES).filter((code) => code !== "TT");
@@ -13,11 +14,37 @@ const Search = () => {
   const [list, setList] = useState(initialList);
   const [input, setInput] = useState("");
 
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter" && list.length > 0) {
+      setInput("");
+      history.push(`${routes.STATE_NULL}/${list[0]}`);
+      setDropDownVisible(false);
+    } else {
+      setDropDownVisible(true);
+    }
+  };
+
+  const handleFocus = () => {
+    setDropDownVisible(true);
+  };
+
+  const handleBlur = () => {
+    setDropDownVisible(false);
+  };
+
+  const handleChange = (e) => {
+    setInput(e.target.value);
+  };
+
   useEffect(() => {
-    const newList = initialList.filter((item) =>
-      fuzzy(STATE_CODES[item], input)
-    );
-    setList(newList);
+    const filterList = () => {
+      const newList = initialList.filter((item) =>
+        fuzzy(STATE_CODES[item], input)
+      );
+      setList(newList);
+    };
+
+    debounce(filterList, 700)();
   }, [input]);
 
   return (
@@ -27,23 +54,10 @@ const Search = () => {
     >
       <input
         value={input}
-        onFocus={() => {
-          setDropDownVisible(true);
-        }}
-        onKeyDown={(e) => {
-          if (e.key === "Enter" && list.length > 0) {
-            setInput("");
-            history.push(`${routes.STATE_NULL}/${list[0]}`);
-            setDropDownVisible(false);
-          }
-          else {setDropDownVisible(true)}
-        }}
-        onBlur={() => {
-          setDropDownVisible(false);
-        }}
-        onChange={(e) => {
-          setInput(e.target.value);
-        }}
+        onFocus={handleFocus}
+        onKeyDown={handleKeyDown}
+        onBlur={handleBlur}
+        onChange={handleChange}
         className="searchInput"
         placeholder="Search State"
       ></input>

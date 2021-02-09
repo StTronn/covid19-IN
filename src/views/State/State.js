@@ -18,22 +18,22 @@ const State = () => {
   if (loading) return <div>Loading...</div>;
   if (error || !data) return <div>No data availble</div>;
 
-  const stateData = data[code].districts;
-  const dataList = getDataList(stateData);
+  let stateData = data[code].districts;
   const stateName = STATE_CODES[code];
-  const overviewData = { ...{ [stateName]: data[code] }, ...stateData };
-  const allEntries = getEntries(overviewData);
+  stateData = { ...{ [stateName]: data[code] }, ...stateData };
+  const dataList = getDataList(stateData);
+  const childrenDataList= dataList.filter(o=>o.name!==stateName)
 
   return (
     <div key={code} className="homeCointainer px-df">
       <div className="left" style={{ display: "grid", rowGap: "50px" }}>
         <Overview
-          data={overviewData}
-          parent={stateName}
-          allEntries={allEntries}
+          data={stateData}
+          intitalSelected={stateName}
+          dataList={dataList}
         />
-        <Highlights allEntries={allEntries} dataList={dataList} />
-        <Table columns={STATE_TABLE_CL} dataList={dataList} data={stateData} />
+        <Highlights dataList={childrenDataList} />
+        <Table columns={STATE_TABLE_CL} dataList={childrenDataList} />
       </div>
       <div></div>
     </div>
@@ -42,10 +42,9 @@ const State = () => {
 
 const getDataList = (data) =>
   Object.keys(data).map((key) => {
-    let obj = { ...{ code: key }, ...data[key] };
+    let obj = { ...{ code: key }, ...data[key],name:key };
     return obj;
   });
 
-const getEntries =(data)=>Object.keys(data).map((key) => ({ [key]: key })); 
 
 export default State;

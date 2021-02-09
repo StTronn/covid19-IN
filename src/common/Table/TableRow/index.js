@@ -1,17 +1,23 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 import { format } from "../../../utils/helper";
 
 const TableRow = ({ field1, field2, field3, field4, link }) => {
+  const history = useHistory();
+
+  const handleClick = () => {
+    if (!link) return;
+    else history.push(link);
+  };
+
   return (
-    <div className="row">
+    <div
+      onClick={handleClick}
+      className={`row ${link ? "" : "disable-p-events"}`}
+    >
       <div className="cell1">
-        {link && (
-          <Link to={link}>
-            <span className="link">{field1}</span>
-          </Link>
-        )}
+        {link && <span className="link">{field1}</span>}
         {!link && field1}
       </div>
       <div className="cell statistic">

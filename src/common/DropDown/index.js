@@ -2,34 +2,36 @@ import React, { useState } from "react";
 
 import "./dropdown.css";
 
-import { getValueFromKey } from "../../utils/helper";
-
-const DropDown = ({ curr, setCurr, dropDownEntries }) => {
+const DropDown = ({ curr, setCurr, dataList }) => {
   const [dropwDownVisible, setDropDownVisible] = useState(false);
+
+  const handleClick = () => setDropDownVisible(!dropwDownVisible);
+
   const setSuggestion = (key) => {
     setCurr(key);
     setDropDownVisible(false);
   };
+
   return (
     <div className="overViewDropCointainer">
       <div
         className="overViewDrop"
-        onClick={() => setDropDownVisible(!dropwDownVisible)}
+        onClick={handleClick}
       >
-        {getValueFromKey(dropDownEntries, curr)}
+        {dataList.find((o) => o.code === curr).name}
         <Arrowdown />
       </div>
 
       {dropwDownVisible && (
         <div className="dropDown ">
-          {dropDownEntries.map((o) => {
-            const key = Object.keys(o)[0];
-            const value = Object.values(o)[0];
+          {dataList.map((o) => {
             return (
               <Suggestion
-                key={key}
-                display={value}
-                onClick={()=>{setSuggestion(key)}}
+                key={o.code}
+                display={o.name}
+                onClick={() => {
+                  setSuggestion(o.code);
+                }}
               />
             );
           })}

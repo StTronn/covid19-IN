@@ -39,13 +39,22 @@ export const STATE_CODES = {
 };
 
 export const COVID_PARAMS = [
-  { confirmed: "Confirmed" },
-  { tested: "Tested" },
-  { recovered: "Recovered" },
-  { vaccinated: "Vaccinated" },
+  { code: "confirmed", name: "Confirmed" },
+  { code: "recovered", name: "Recovered" },
+  { code: "tested", name: "Tested" },
 ];
 
-const tableFields=['Confirmed','Recovered','Tested'] 
+const tableFields = [
+  { key: "confirmed", value: "Confirmed" },
+  { key: "recovered", value: "Recovered" },
+  { key: "tested", value: "Tested" },
+];
 
-export const HOME_TABLE_CL=['State/UT'].concat(tableFields);
-export const STATE_TABLE_CL=['Districts/City'].concat(tableFields);
+export const HOME_TABLE_CL = [
+  { key: "name", value: "State/UT" },
+  ...tableFields,
+];
+export const STATE_TABLE_CL = [
+  { key: "name", value: "District/City" },
+  ...tableFields,
+];

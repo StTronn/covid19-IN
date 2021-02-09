@@ -15,33 +15,32 @@
   border-top: none;
   border-radius: 0 0 4px 4px;
   margin-right: 2px;
-  max-height:250px;
+  max-height: 250px;
   overflow-y: auto;
   overflow-x: hidden;
   z-index: 99;
 }
 
-
 .dropDown::-webkit-scrollbar {
-    width: 2px;
+  width: 2px;
 }
 
 .dropDown::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
-    border-radius: 10px;
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
 }
 
 .dropDown::-webkit-scrollbar-thumb {
-    border-radius: 10px;
-    box-shadow: inset 0 0 6px var(--primaryClr); 
+  border-radius: 10px;
+  box-shadow: inset 0 0 6px var(--primaryClr);
 }
 
 @media (max-width: 600px) {
   .overViewDrop {
-    font-size:14px;
+    font-size: 14px;
     padding: 8px 12px;
   }
-  .overViewDropCointainer{
+  .overViewDropCointainer {
     margin-right: 1px;
   }
 }
@@ -54,14 +53,13 @@
   transition: 0.1s;
 }
 
-.suggestion-high{
+.suggestion-high {
   font-size: 14px;
   padding: 13px;
   letter-spacing: 0.4px;
   cursor: pointer;
   transition: 0.1s;
   background: var(--constantSecondaryClr10);
-
 }
 
 .suggestion:hover {

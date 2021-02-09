@@ -1,7 +1,8 @@
 import React from "react";
+
 import "./bottomnav.css";
 
-const BottomNav = ({  displayDash, setDisplayDash }) => {
+const BottomNav = ({ displayDash, setDisplayDash }) => {
   return (
     <div
       style={{ justifyItems: "center", alignItems: "center" }}
@@ -11,7 +12,7 @@ const BottomNav = ({  displayDash, setDisplayDash }) => {
         onClick={() => {
           setDisplayDash(true);
         }}
-        className={`${displayDash?"growwPrim":""} bottomButton`}
+        className={`${displayDash ? "growwPrim" : ""} bottomButton`}
       >
         <DashIcon />
         <div>Dash</div>
@@ -20,7 +21,7 @@ const BottomNav = ({  displayDash, setDisplayDash }) => {
         onClick={() => {
           setDisplayDash(false);
         }}
-        className={`${!displayDash?"growwPrim":""} bottomButton`}
+        className={`${!displayDash ? "growwPrim" : ""} bottomButton`}
       >
         <UpdateIcon />
         <div> Updates</div>
