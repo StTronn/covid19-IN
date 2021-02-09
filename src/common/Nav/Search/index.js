@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 
-import routes from "../../../router/webRoutes";
-
 import { debounce } from "../../../utils/helper";
-
+import routes from "../../../router/webRoutes";
 import { STATE_CODES } from "../../../utils/constants";
 
 const initialList = Object.keys(STATE_CODES).filter((code) => code !== "TT");

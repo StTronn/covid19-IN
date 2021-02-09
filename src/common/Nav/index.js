@@ -1,22 +1,24 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import routes from "../../router/webRoutes";
 
 import Moon from "./images/moon.svg";
 import Sun from "./images/sun.svg";
-
 import Search from "./Search";
+
+import routes from "../../router/webRoutes";
 
 import "./nav.css";
 
 const Nav = () => {
   const [theme, setTheme] = useState(findIntialTheme());
+
   const toggleTheme = () => {
     const newTheme = theme === "dark" ? "light" : "dark";
     localStorage.setItem("mode", JSON.stringify(newTheme));
     document.documentElement.setAttribute("data-theme", newTheme);
     setTheme(newTheme);
   };
+
   return (
     <div className="navWrapper">
       <div className="nav">

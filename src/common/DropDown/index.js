@@ -4,7 +4,9 @@ import "./dropdown.css";
 
 const DropDown = ({ curr, setCurr, dataList }) => {
   const [dropwDownVisible, setDropDownVisible] = useState(false);
-  console.log({dataList})
+
+  const handleClick = () => setDropDownVisible(!dropwDownVisible);
+
   const setSuggestion = (key) => {
     setCurr(key);
     setDropDownVisible(false);
@@ -14,7 +16,7 @@ const DropDown = ({ curr, setCurr, dataList }) => {
     <div className="overViewDropCointainer">
       <div
         className="overViewDrop"
-        onClick={() => setDropDownVisible(!dropwDownVisible)}
+        onClick={handleClick}
       >
         {dataList.find((o) => o.code === curr).name}
         <Arrowdown />

@@ -5,10 +5,9 @@ import DropDown from "../DropDown";
 import HighlightCard from "./HighlightCard";
 
 import routes from "../../router/webRoutes";
+import { COVID_PARAMS } from "../../utils/constants";
 
 import "./highlight.css";
-
-import { COVID_PARAMS } from "../../utils/constants";
 
 const Highlights = ({ dataList, link }) => {
   const [selectedParam, setSelectedParam] = useState("confirmed");
