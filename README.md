@@ -1,6 +1,24 @@
-# Groww Forms
+# Covid Tracker India
 
-Clone of Groww Forms.
+Get Details and track covid cases in India
 
-## Components Library
-Components in `styles` folder is published as a component library at bit.dev [here](https://bit.dev/sttronn/growwform)
+![alt text](./desktop2.png)
+
+![alt text](./desktop3.png)
+
+## Tools and technicalities
+ * [React.js](https://facebook.github.io/react/)
+ * [Redux](https://github.com/reactjs/redux)
+ * [lodash](https://lodash.com/)
+
+Uses Cache 
+
+Debouncing in Search
+
+Responsive
+
+Dark Mode
+
+
+## API
+https://api.covid19india.org/
